@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elegance Gamis - Modern Islamic Fashion</title>
+    <style>
+      /* Reset and Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f8f5f2;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #8e6d57;
+      }
+
+      .logo span {
+        color: #d4a373;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #555;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #d4a373;
+      }
+
+      .hamburger {
+        display: none;
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)),
+          url("/api/placeholder/1200/800") center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        padding: 0 5%;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-btn {
+        display: inline-block;
+        background-color: #d4a373;
+        color: #fff;
+        padding: 0.8rem 2rem;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: background-color 0.3s;
+      }
+
+      .cta-btn:hover {
+        background-color: #c89b6d;
+      }
+
+      /* Featured Products */
+      .featured {
+        padding: 5rem 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+        color: #8e6d57;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 3px;
+        background-color: #d4a373;
+      }
+
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .product-card {
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-img {
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .product-info {
+        padding: 1.5rem;
+      }
+
+      .product-name {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+
+      .product-price {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #d4a373;
+        margin-bottom: 1rem;
+      }
+
+      .product-btn {
+        display: block;
+        width: 100%;
+        padding: 0.8rem;
+        background-color: #8e6d57;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s;
+      }
+
+      .product-btn:hover {
+        background-color: #7a5d4a;
+      }
+
+      /* Collection Section */
+      .collection {
+        padding: 3rem 5%;
+        background-color: #faf3e0;
+      }
+
+      .collection-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 3rem;
+      }
+
+      .collection-text {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .collection-img {
+        flex: 1;
+        min-width: 300px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .collection-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .collection h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: #8e6d57;
+      }
+
+      .collection p {
+        margin-bottom: 2rem;
+        line-height: 1.8;
+      }
+
+      /* Testimonials */
+      .testimonials {
+        padding: 5rem 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .testimonial-container {
+        display: flex;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        gap: 2rem;
+        padding: 1rem 0;
+      }
+
+      .testimonial {
+        min-width: 300px;
+        width: 100%;
+        max-width: 400px;
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .testimonial-text::before,
+      .testimonial-text::after {
+        content: ""
+          ";
+            font-size: 3rem;
+            color: #d4a373;
+            opacity: 0.3;
+        }
+
+        .testimonial-text::after {
+            content: "
+          "";
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+
+      .author-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 1rem;
+        object-fit: cover;
+      }
+
+      .author-info h4 {
+        color: #333;
+        margin-bottom: 0.2rem;
+      }
+
+      .author-info p {
+        color: #888;
+        font-size: 0.9rem;
+      }
+
+      .testimonial-controls {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        gap: 1rem;
+      }
+
+      .testimonial-btn {
+        background-color: #d4a373;
+        color: #fff;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s;
+      }
+
+      .testimonial-btn:hover {
+        background-color: #c89b6d;
+      }
+
+      /* Newsletter */
+      .newsletter {
+        background-color: #8e6d57;
+        color: #fff;
+        padding: 4rem 5%;
+        text-align: center;
+      }
+
+      .newsletter-container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .newsletter h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .newsletter p {
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .newsletter-form {
+        display: flex;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .newsletter-input {
+        flex: 1;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 30px 0 0 30px;
+        font-size: 1rem;
+      }
+
+      .newsletter-btn {
+        background-color: #d4a373;
+        color: #fff;
+        border: none;
+        padding: 0 1.5rem;
+        border-radius: 0 30px 30px 0;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s;
+      }
+
+      .newsletter-btn:hover {
+        background-color: #c89b6d;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 4rem 5% 2rem;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-col h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .footer-col h4::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 2px;
+        background-color: #d4a373;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: #d4a373;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-icon {
+        width: 36px;
+        height: 36px;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background-color 0.3s;
+      }
+
+      .social-icon:hover {
+        background-color: #d4a373;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 3rem;
+        color: #999;
+        font-size: 0.9rem;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 70px);
+          background-color: #fff;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: left 0.3s;
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .nav-links li {
+          margin: 1.5rem 0;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .collection-container {
+          flex-direction: column;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+        }
+
+        .newsletter-input {
+          border-radius: 30px;
+          margin-bottom: 1rem;
+        }
+
+        .newsletter-btn {
+          border-radius: 30px;
+          padding: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="navbar">
+        <div class="logo">Elegance<span>Gamis</span></div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <i>≡</i>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Elegant Gamis for Modern Muslim Women</h1>
+        <p>
+          Discover our exclusive collection of premium quality gamis that
+          combines traditional values with contemporary style.
+        </p>
+        <a href="#products" class="cta-btn">Shop Now</a>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured" id="products">
+      <h2 class="section-title">Featured Products</h2>
+      <div class="products">
+        <div class="product-card">
+          <img
+            src="/api/placeholder/300/300"
+            alt="Floral Gamis"
+            class="product-img"
+          />
+          <div class="product-info">
+            <h3 class="product-name">Floral Embroidered Gamis</h3>
+            <p class="product-price">$75.99</p>
+            <button class="product-btn">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img
+            src="/api/placeholder/300/300"
+            alt="Simple Elegant Gamis"
+            class="product-img"
+          />
+          <div class="product-info">
+            <h3 class="product-name">Simple Elegant Gamis</h3>
+            <p class="product-price">$59.99</p>
+            <button class="product-btn">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img
+            src="/api/placeholder/300/300"
+            alt="Pastel Gamis"
+            class="product-img"
+          />
+          <div class="product-info">
+            <h3 class="product-name">Pastel Collection Gamis</h3>
+            <p class="product-price">$68.50</p>
+            <button class="product-btn">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img
+            src="/api/placeholder/300/300"
+            alt="Premium Gamis"
+            class="product-img"
+          />
+          <div class="product-info">
+            <h3 class="product-name">Premium Silk Gamis</h3>
+            <p class="product-price">$89.99</p>
+            <button class="product-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collection Banner -->
+    <section class="collection" id="collection">
+      <div class="collection-container">
+        <div class="collection-text">
+          <h2>New Season Collection</h2>
+          <p>
+            Our latest collection features beautifully crafted gamis in a
+            variety of fabrics, styles, and designs. Each piece is made with
+            attention to detail and designed for comfort without compromising on
+            elegance.
+          </p>
+          <a href="#" class="cta-btn">View Collection</a>
+        </div>
+        <div class="collection-img">
+          <img src="/api/placeholder/600/400" alt="New Collection" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <h2 class="section-title">What Our Customers Say</h2>
+      <div class="testimonial-container" id="testimonial-slider">
+        <div class="testimonial">
+          <p class="testimonial-text">
+            The quality of the fabrics used in their gamis is exceptional. I've
+            received many compliments, and they're so comfortable for daily
+            wear.
+          </p>
+          <div class="testimonial-author">
+            <img
+              src="/api/placeholder/50/50"
+              alt="Customer"
+              class="author-img"
+            />
+            <div class="author-info">
+              <h4>Amina Ibrahim</h4>
+              <p>Verified Customer</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">
+            I love how their designs merge traditional and modern styles. The
+            gamis I purchased is perfect for both casual outings and special
+            occasions.
+          </p>
+          <div class="testimonial-author">
+            <img
+              src="/api/placeholder/50/50"
+              alt="Customer"
+              class="author-img"
+            />
+            <div class="author-info">
+              <h4>Sarah Ahmad</h4>
+              <p>Verified Customer</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">
+            The attention to detail in their embroidery is remarkable. Their
+            customer service is exceptional as well. Highly recommend!
+          </p>
+          <div class="testimonial-author">
+            <img
+              src="/api/placeholder/50/50"
+              alt="Customer"
+              class="author-img"
+            />
+            <div class="author-info">
+              <h4>Fatima Zahra</h4>
+              <p>Verified Customer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-controls">
+        <button class="testimonial-btn" id="prev-testimonial">←</button>
+        <button class="testimonial-btn" id="next-testimonial">→</button>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <div class="newsletter-container">
+        <h3>Subscribe to Our Newsletter</h3>
+        <p>Stay updated with our latest collections and exclusive offers.</p>
+        <form class="newsletter-form">
+          <input
+            type="email"
+            placeholder="Your Email Address"
+            class="newsletter-input"
+            required
+          />
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h4>Elegance Gamis</h4>
+          <p>
+            Providing elegant Islamic fashion since 2015. We believe in quality,
+            comfort, and style that respects traditional values.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-icon">f</a>
+            <a href="#" class="social-icon">i</a>
+            <a href="#" class="social-icon">t</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul class="footer-links">
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Best Sellers</a></li>
+            <li><a href="#">Discounted Items</a></li>
+            <li><a href="#">Collection</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Service</h4>
+          <ul class="footer-links">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Information</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Elegance Gamis. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Navigation
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Close menu when a link is clicked
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Testimonial Slider
+      const testimonialContainer =
+        document.getElementById("testimonial-slider");
+      const testimonials = document.querySelectorAll(".testimonial");
+      const prevBtn = document.getElementById("prev-testimonial");
+      const nextBtn = document.getElementById("next-testimonial");
+      let currentIndex = 0;
+
+      function updateSlider() {
+        const testimonialWidth = testimonials[0].offsetWidth + 32; // Width + gap
+        testimonialContainer.style.transform = `translateX(-${
+          currentIndex * testimonialWidth
+        }px)`;
+      }
+
+      prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateSlider();
+        }
+      });
+
+      nextBtn.addEventListener("click", () => {
+        if (currentIndex < testimonials.length - 1) {
+          currentIndex++;
+          updateSlider();
+        }
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 70,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Product card hover effect
+      const productCards = document.querySelectorAll(".product-card");
+
+      productCards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          card.style.transform = "translateY(-10px)";
+          card.style.boxShadow = "0 15px 30px rgba(0, 0, 0, 0.15)";
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "translateY(0)";
+          card.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.1)";
+        });
+      });
+
+      // Newsletter form submission
+      const newsletterForm = document.querySelector(".newsletter-form");
+
+      newsletterForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const emailInput = this.querySelector(".newsletter-input");
+        if (emailInput.value) {
+          alert("Thank you for subscribing to our newsletter!");
+          emailInput.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
